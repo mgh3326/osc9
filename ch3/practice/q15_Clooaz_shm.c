@@ -10,11 +10,14 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <string.h>
+int length_int(int num);
 int main()
 {
 
     pid_t pid, pid1;
     int num = 0;
+    char temp_array[10]; // 변환한 문자열을 저장할 배열
+    int temp_num = 0;    // initialize
     printf("Enter positive integer : ");
     scanf("%d", &num);
     if (num < 0)
@@ -73,15 +76,21 @@ int main()
             if (num == 1)
             {
                 //printf("%d\n", num);
-                
+                sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+                sprintf(ptr, "%s", temp_array);
+                ptr += strlen(temp_array);
+                sprintf(ptr, "\n");
+                ptr += strlen("\n");
                 break;
             }
             // printf("%d, ", num);
-
-         sprintf(ptr, "%s", message0);
-        ptr += strlen(message0);
-            // sprintf(ptr, ", ");
-            // ptr += strlen(", ");
+            sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+            sprintf(ptr, "%s", temp_array);
+            ptr += strlen(temp_array);
+            // sprintf(ptr, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+            // ptr += num / 10 
+            sprintf(ptr, ", ");
+            ptr += strlen(", ");
             if (num % 2 == 0)
             { //짝수
                 num = num / 2;
@@ -131,4 +140,17 @@ int main()
     }
 
     return 0;
+}
+int length_int(int num)
+{
+    int index = 1;
+    while (1)
+    {
+        num = num / 10;
+
+        if (num == 0)
+            break;
+        index++;
+    }
+    return index;
 }
