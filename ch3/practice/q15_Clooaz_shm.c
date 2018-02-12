@@ -73,22 +73,25 @@ int main()
 
         while (num > 0)
         {
+            sprintf(ptr, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+            ptr += length_int(num);
             if (num == 1)
             {
                 //printf("%d\n", num);
-                sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
-                sprintf(ptr, "%s", temp_array);
-                ptr += strlen(temp_array);
+                // sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+                // sprintf(ptr, "%s", temp_array);
+                // ptr += strlen(temp_array);
+                
                 sprintf(ptr, "\n");
                 ptr += strlen("\n");
                 break;
             }
             // printf("%d, ", num);
-            sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
-            sprintf(ptr, "%s", temp_array);
-            ptr += strlen(temp_array);
+            // sprintf(temp_array, "%d", num); // %d를 지정하여 정수를 문자열로 저장
+            // sprintf(ptr, "%s", temp_array);
+            // ptr += strlen(temp_array);
             // sprintf(ptr, "%d", num); // %d를 지정하여 정수를 문자열로 저장
-            // ptr += num / 10 
+            // ptr += length_int(num);
             sprintf(ptr, ", ");
             ptr += strlen(", ");
             if (num % 2 == 0)
