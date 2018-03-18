@@ -15,7 +15,7 @@ import java.io.*;
 public class DateServer {
     public static void main(String[] args) {
         try {
-            ServerSocket sock = new ServerSocket(6013);
+            ServerSocket sock = new ServerSocket(6017);//포트 변경
 
             // now listen for connections
             while (true) {
