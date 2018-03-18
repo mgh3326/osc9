@@ -157,3 +157,5 @@ int length_int(int num)
     }
     return index;
 }
+
+//이거 다한건가??
